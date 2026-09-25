@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAARUF — Terms of Service</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1e1d1a;--muted:#6b675f;--accent:#0d6b5b;--draft:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#141412;--fg:#ebe8e1;--muted:#9c978c;--accent:#4fc3a1}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 -apple-system,"Segoe UI",Roboto,"Noto Naskh Arabic","Noto Sans Hebrew",sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 64px}
+nav{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+nav a,nav button{font:inherit;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:8px;padding:4px 12px;cursor:pointer;text-decoration:none}
+nav button[aria-pressed=true]{background:var(--accent);color:#fff}
+.draft{background:var(--draft);color:#fff;padding:8px 12px;border-radius:8px;margin-bottom:16px;font-size:14px}
+section[hidden]{display:none}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid var(--muted);padding:6px 8px;font-size:15px}
+footer{color:var(--muted);font-size:14px;margin-top:40px}
+</style>
+</head>
+<body><main>
+<nav>
+<a href="../../">TAARUF</a>
+<button data-lang="ar" aria-pressed="true">العربية</button>
+<button data-lang="he">עברית</button>
+<button data-lang="en">English</button>
+</nav>
+<div class="draft">DRAFT — placeholder text pending legal review · مسودّة — نص مؤقت بانتظار المراجعة القانونية · טיוטה — נוסח זמני עד לאישור משפטי</div>
+<section data-lang="ar" dir="rtl" lang="ar">
+<h1>شروط الاستخدام</h1>
+<p>بإنشاء حساب في تعارُف فإنك توافق على هذه الشروط.</p>
+<ul><li>عمرك 18 عامًا أو أكثر، وتستخدم حسابًا واحدًا يمثّلك بصدق.</li><li>ممنوع التحرّش، ومشاركة صور أو تفاصيل أي عضو، والتقاط صور شاشة للملفات الشخصية. المخالفات تؤدي إلى تعليق الحساب، والإبلاغ حيث يقتضي القانون.</li><li>الاشتراكات تتجدّد عبر App Store؛ يمكنك الإلغاء في أي وقت من حساب Apple.</li><li>يجوز لنا تعليق الحسابات أو إزالتها لحماية سلامة الأعضاء. للاعتراض: support@taaruf.app.</li><li>القانون الحاكم: دولة إسرائيل؛ محاكم حيفا.</li></ul>
+</section>
+<section data-lang="he" dir="rtl" lang="he" hidden>
+<h1>תנאי שימוש</h1>
+<p>ביצירת חשבון בתַעָארוּף את/ה מסכימ/ה לתנאים אלה.</p>
+<ul><li>גילך 18 ומעלה, ואת/ה משתמש/ת בחשבון אחד המייצג אותך באמת.</li><li>אין הטרדה, אין שיתוף תמונות או פרטים של חבר אחר, אין צילומי מסך של פרופילים. הפרות מובילות להשעיה ולדיווח כנדרש בחוק.</li><li>מנויים מתחדשים דרך App Store; ניתן לבטל בכל עת בחשבון Apple.</li><li>אנו רשאים להשעות או להסיר חשבונות כדי להגן על בטיחות החברים. ערעורים: support@taaruf.app.</li><li>הדין החל: מדינת ישראל; בתי המשפט בחיפה.</li></ul>
+</section>
+<section data-lang="en" dir="ltr" lang="en" hidden>
+<h1>Terms of Service</h1>
+<p>By creating a TAARUF account you agree to these terms.</p>
+<ul><li>You are 18 or older and use one account that represents you truthfully.</li><li>No harassment, no sharing of another member's photos or details, no screenshots of profiles. Violations lead to suspension and, where required by law, reporting.</li><li>Subscriptions renew through the App Store; cancel any time in your Apple account.</li><li>We may suspend or remove accounts to protect members' safety. Appeals: support@taaruf.app.</li><li>Governing law: State of Israel; courts of Haifa.</li></ul>
+</section>
+<footer>TAARUF · 2026-09-25 · <a href="../privacy/">privacy</a> · <a href="../terms/">terms</a> · <a href="../transparency/">transparency</a> · <a href="../canary/">canary</a></footer>
+</main>
+<script>
+(function(){
+  var q=(location.hash||'').replace('#','')||(navigator.language||'ar').slice(0,2);
+  if(['ar','he','en'].indexOf(q)<0)q='ar';
+  function show(l){document.querySelectorAll('section[data-lang]').forEach(function(s){s.hidden=s.dataset.lang!==l});
+    document.querySelectorAll('nav button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l)});
+    document.documentElement.lang=l;document.documentElement.dir=l==='en'?'ltr':'rtl';}
+  document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){location.hash=b.dataset.lang;show(b.dataset.lang)}});
+  document.querySelectorAll('[data-canary-date]').forEach(function(e){e.textContent='2026-09-25'});
+  show(q);
+})();
+</script>
+</body></html>

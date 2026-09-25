@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TAARUF — Transparency Report</title>
+<style>
+:root{--bg:#fbfaf7;--fg:#1e1d1a;--muted:#6b675f;--accent:#0d6b5b;--draft:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#141412;--fg:#ebe8e1;--muted:#9c978c;--accent:#4fc3a1}}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 -apple-system,"Segoe UI",Roboto,"Noto Naskh Arabic","Noto Sans Hebrew",sans-serif}
+main{max-width:720px;margin:0 auto;padding:24px 16px 64px}
+nav{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:24px}
+nav a,nav button{font:inherit;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:8px;padding:4px 12px;cursor:pointer;text-decoration:none}
+nav button[aria-pressed=true]{background:var(--accent);color:#fff}
+.draft{background:var(--draft);color:#fff;padding:8px 12px;border-radius:8px;margin-bottom:16px;font-size:14px}
+section[hidden]{display:none}
+table{border-collapse:collapse;width:100%}th,td{border:1px solid var(--muted);padding:6px 8px;font-size:15px}
+footer{color:var(--muted);font-size:14px;margin-top:40px}
+</style>
+</head>
+<body><main>
+<nav>
+<a href="../../">TAARUF</a>
+<button data-lang="ar" aria-pressed="true">العربية</button>
+<button data-lang="he">עברית</button>
+<button data-lang="en">English</button>
+</nav>
+<div class="draft">DRAFT — placeholder text pending legal review · مسودّة — نص مؤقت بانتظار المراجعة القانونية · טיוטה — נוסח זמני עד לאישור משפטי</div>
+<section data-lang="ar" dir="rtl" lang="ar">
+<h1>تقرير الشفافية</h1>
+<p>يُنشر مرتين في السنة. الإصدار الأول بعد ستة أشهر من الإطلاق العام.</p>
+<table><tr><th>الفترة</th><th>طلبات حكومية</th><th>طلبات تمت الاستجابة لها</th><th>حسابات عُلّقت لأسباب أمان</th><th>بلاغات أمان عولجت</th></tr><tr><td>النسخة التجريبية</td><td>0</td><td>0</td><td>—</td><td>—</td></tr></table>
+<p>ننشر عدد الطلبات القانونية التي نتلقاها وما كشفنا عنه. نُخطر الأعضاء المعنيين ما لم يمنع القانون ذلك.</p>
+</section>
+<section data-lang="he" dir="rtl" lang="he" hidden>
+<h1>דוח שקיפות</h1>
+<p>מתפרסם פעמיים בשנה. המהדורה הראשונה שישה חודשים לאחר ההשקה הציבורית.</p>
+<table><tr><th>תקופה</th><th>בקשות ממשלתיות</th><th>בקשות שנענו</th><th>חשבונות שהושעו מטעמי בטיחות</th><th>דיווחי בטיחות שטופלו</th></tr><tr><td>בטא</td><td>0</td><td>0</td><td>—</td><td>—</td></tr></table>
+<p>אנו מפרסמים את מספר הבקשות המשפטיות שקיבלנו ומה נחשף. אנו מיידעים חברים שנפגעו אלא אם החוק אוסר זאת.</p>
+</section>
+<section data-lang="en" dir="ltr" lang="en" hidden>
+<h1>Transparency Report</h1>
+<p>Published twice a year. First edition due six months after public launch.</p>
+<table><tr><th>Period</th><th>Government requests</th><th>Requests complied with</th><th>Accounts suspended for safety</th><th>Safety reports handled</th></tr><tr><td>Beta</td><td>0</td><td>0</td><td>—</td><td>—</td></tr></table>
+<p>We publish the count of legal requests we receive and what we disclosed. We notify affected members unless legally prohibited.</p>
+</section>
+<footer>TAARUF · 2026-09-25 · <a href="../privacy/">privacy</a> · <a href="../terms/">terms</a> · <a href="../transparency/">transparency</a> · <a href="../canary/">canary</a></footer>
+</main>
+<script>
+(function(){
+  var q=(location.hash||'').replace('#','')||(navigator.language||'ar').slice(0,2);
+  if(['ar','he','en'].indexOf(q)<0)q='ar';
+  function show(l){document.querySelectorAll('section[data-lang]').forEach(function(s){s.hidden=s.dataset.lang!==l});
+    document.querySelectorAll('nav button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l)});
+    document.documentElement.lang=l;document.documentElement.dir=l==='en'?'ltr':'rtl';}
+  document.querySelectorAll('nav button').forEach(function(b){b.onclick=function(){location.hash=b.dataset.lang;show(b.dataset.lang)}});
+  document.querySelectorAll('[data-canary-date]').forEach(function(e){e.textContent='2026-09-25'});
+  show(q);
+})();
+</script>
+</body></html>
